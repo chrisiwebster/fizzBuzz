@@ -7,6 +7,7 @@ body {
   margin: 0 auto;
   padding: 0.5em;
 }
+
 button {
   border-radius: 5px;
   outline: none;
@@ -20,6 +21,10 @@ button:hover {
 button:active {
   background: rgba(0, 0, 0, 0.8);
   color: white;
+}
+
+button.refresh {
+  background: #9cc;
 }
 
 input,
