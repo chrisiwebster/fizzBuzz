@@ -30,6 +30,7 @@ button.refresh {
 input,
 button {
   width: auto;
+  font-size: 16px;
   padding: 0.8em;
   margin-bottom: 1em;
 }
