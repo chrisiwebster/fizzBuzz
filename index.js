@@ -1,13 +1,13 @@
 //FizzBuzz function
 const fizzBuzz = (num) => {
   switch(true) {
-    case (num % 3 == 0) && (num % 5 == 0):
+    case (num % 3 === 0) && (num % 5 === 0):
       return 'FizzBuzz'
       break;
-    case num % 3 == 0: 
+    case num % 3 === 0: 
       return 'Fizz'
       break;
-    case num % 5 == 0:
+    case num % 5 === 0:
       return 'Buzz';
       break;
     default: 
@@ -20,7 +20,7 @@ const fizzBuzz = (num) => {
 const fizzCounter = (num) => {
   //Initialise array so we can manipulate it later
   let fizzArray = [];
-  for(let i = num; i >= 0; i--){
+  for(let i = num; i > 0; i--){
     fizzArray.push(fizzBuzz(i));
   }
   return fizzArray;
@@ -40,12 +40,12 @@ const fizzBuzzTest = () => {
       testDisplay.innerHTML = result;
       //Removes event listener so you can't just keep hitting the button.
       testButton.removeEventListener('click', () => {})
+      testInput.value = '';
     })
   })
   clearTest.addEventListener('click', () => {
-    //Clears the input and the box
+    //Clears the box
     testDisplay.innerHTML = '';
-    testInput.value = '';
   })
 }
 
@@ -67,15 +67,16 @@ const fizzBuzzCounter = () => {
         li.appendChild(node);
         //append that li to the box
         counterDisplay.appendChild(li);
+        counterButton.removeEventListener('click', () => {})
+        //Removes event listener so you can't just keep hitting the button.
+        counterInput.removeEventListener('click', () => {} )
+        counterInput.value = '';
       }
     })
-      //Removes event listener so you can't just keep hitting the button.
-    counterInput.removeEventListener('click', () => {} )
   })
   clearCounter.addEventListener('click', () => {
     //Clears the input and the box
     counterDisplay.innerHTML = '';
-    counterInput.value = '';
   })
   }
 
