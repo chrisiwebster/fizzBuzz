@@ -55,30 +55,33 @@ const fizzBuzzCounter = () => {
   const counterButton = document.querySelector('#counterButton');
   const clearCounter = document.querySelector('#clearFizzCounter');
   counterInput.addEventListener('click', (ev) => {
-    counterButton.addEventListener('click', () => {
-      counterInput.removeEventListener('click', () => {} )
-      counterInput.value = '';
-      const array = fizzCounter(ev.target.value);
-     //run through each item of the fizz buzz result
-      for(let i = 0; i < array.length; i++){
-        //create an li
-        let li = document.createElement('li');
-        //create a text node out of the array item
-        let node = document.createTextNode(array[i]);
-        //append that node to the li
-        li.appendChild(node);
-        //append that li to the box
-        counterDisplay.appendChild(li);
-      }
-       //Removes event listener so you can't just keep hitting the button.
-       counterButton.removeEventListener('click', () => {})
-    })
-  })
-  clearCounter.addEventListener('click', () => {
-    //Clears the input and the box
+      //If someone clicks on input to enter another number, this clears it
     counterDisplay.innerHTML = '';
-  })
+    counterButton.addEventListener('click', () => {
+      const array = fizzCounter(ev.target.value);
+      //run through each item of the fizz buzz result
+        for(let i = 0; i < array.length; i++){
+          //create an li
+          let li = document.createElement('li');
+          //create a text node out of the array item
+          let node = document.createTextNode(array[i]);
+          //append that node to the li
+          li.appendChild(node);
+          //append that li to the box
+          counterDisplay.appendChild(li);
+          counterInput.value = '';
+        }
+        //Removes event listener so you can't just keep hitting the button.
+        counterButton.removeEventListener('click', () => {})
+        counterInput.removeEventListener('click', () => {} )
+      })
+    })
+    clearCounter.addEventListener('click', () => {
+      //Clears the input and the box
+      counterDisplay.innerHTML = '';
+    })
   }
+
 
 const init = () => {
   fizzBuzzTest();
