@@ -8,13 +8,15 @@ body {
   padding: 0.5em;
 }
 
-button {
+button,
+input[type="reset"] {
   border-radius: 5px;
   outline: none;
   width: 15%;
 }
 
-button:hover {
+button:hover,
+input[type="reset"] {
   cursor: pointer;
 }
 
@@ -23,7 +25,7 @@ button:active {
   color: white;
 }
 
-button.refresh {
+input[type="reset"] {
   background: #9cc;
 }
 

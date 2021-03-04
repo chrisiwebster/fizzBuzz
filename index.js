@@ -2,24 +2,20 @@
 const fizzBuzz = (num) => {
   switch(true) {
     case (num % 3 === 0) && (num % 5 === 0):
-      return 'FizzBuzz'
-      break;
+      return 'FizzBuzz';
     case num % 3 === 0: 
-      return 'Fizz'
-      break;
+      return 'Fizz';
     case num % 5 === 0:
       return 'Buzz';
-      break;
     default: 
       return num;
-      break;
   }
 }
 
 //Counts down from the number provides and uses the FizzBuzz against each number
 const fizzCounter = (num) => {
   //Initialise array so we can manipulate it later
-  let fizzArray = [];
+  const fizzArray = [];
   for(let i = num; i > 0; i--){
     fizzArray.push(fizzBuzz(i));
   }
@@ -38,9 +34,13 @@ const fizzBuzzTest = () => {
     testButton.addEventListener('click', () => {
       //Changes the box so the result of FizzBuzz appears
       testDisplay.innerHTML = result;
+      testInput.value = '';
+      //Removes the result so the browser doesn't remember
+      result = '';
       //Removes event listener so you can't just keep hitting the button.
       testButton.removeEventListener('click', () => {})
-      testInput.value = '';
+      testInput.removeEventListener('click', () => {} )
+
     })
   })
   clearTest.addEventListener('click', () => {
@@ -56,6 +56,8 @@ const fizzBuzzCounter = () => {
   const clearCounter = document.querySelector('#clearFizzCounter');
   counterInput.addEventListener('click', (ev) => {
     counterButton.addEventListener('click', () => {
+      counterInput.removeEventListener('click', () => {} )
+      counterInput.value = '';
       const array = fizzCounter(ev.target.value);
      //run through each item of the fizz buzz result
       for(let i = 0; i < array.length; i++){
@@ -67,11 +69,9 @@ const fizzBuzzCounter = () => {
         li.appendChild(node);
         //append that li to the box
         counterDisplay.appendChild(li);
-        counterButton.removeEventListener('click', () => {})
-        //Removes event listener so you can't just keep hitting the button.
-        counterInput.removeEventListener('click', () => {} )
-        counterInput.value = '';
       }
+       //Removes event listener so you can't just keep hitting the button.
+       counterButton.removeEventListener('click', () => {})
     })
   })
   clearCounter.addEventListener('click', () => {
@@ -79,7 +79,6 @@ const fizzBuzzCounter = () => {
     counterDisplay.innerHTML = '';
   })
   }
-
 
 const init = () => {
   fizzBuzzTest();

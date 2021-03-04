@@ -21,9 +21,9 @@
       </li>
       <li>If none of the above is true, you will see your number.</li>
     </ul>
-    <input type="number" name="test" id="fizzBuzzTest" />
+    <input type="number" name="test" id="fizzBuzzTest" autocomplete="off" />
     <button id="testButton">Let's see</button>
-    <button id="clearFizzTest" class="refresh">Refresh</button>
+    <input type="reset" id="clearFizzTest" class="refresh" />
     <div id="testBox" class="box"></div>
     <h2>Give the counter a number</h2>
     <p>
@@ -31,9 +31,14 @@
       checks each number to see whether it should return 'Fizz', 'Buzz' or
       'FizzBuzz'.
     </p>
-    <input type="number" name="counter" id="fizzBuzzCounter" />
+    <input
+      type="number"
+      name="counter"
+      id="fizzBuzzCounter"
+      autocomplete="off"
+    />
     <button id="counterButton">Start the counter</button>
-    <button id="clearFizzCounter" class="refresh">Refresh</button>
+    <input type="reset" id="clearFizzCounter" class="refresh" />
     <div id="counterBox" class="box"></div>
   </body>
 </html>
